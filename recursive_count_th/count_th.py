@@ -5,15 +5,16 @@ Your function must utilize recursion. It cannot contain any loops.
 '''
 def count_th(word):
     # return word.count("th")
-    count = 0
-    string = word
-    
+
+    # control for empty string
     if word == "":
         return 0
-    if not word[0].isalpha():
-        return count_th(word[1:])
+    # recursive call check
     if word[0] == "t" and word[1] == "h":
         return 1 + count_th(word[1:])
+    # control for reverse
+    if word[-1] == "t" and word[-2] == "h":
+        return 1 + count_th(word[:1])
     else:
         return count_th(word[1:])
 
@@ -22,11 +23,13 @@ none = ""
 no = "adas123dasd"
 one = "thasdasd"
 two = "thethe"
+back = "ht"
 
 print("None:", count_th(none))
 print("No:", count_th(no))
 print("One:", count_th(one))
 print("Two:", count_th(two))
+print("back", count_th(back))
 
 
 
