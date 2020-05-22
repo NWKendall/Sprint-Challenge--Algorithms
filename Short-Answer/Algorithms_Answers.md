@@ -5,10 +5,11 @@
 a) O(n) - A linear, iterative function. Duration of function is contingent of value of n.
 
 
-b) O(nlogn) - Superlinear iterative algorithm with run time growing proportionally to lenth of n.
+b) O(n^2) - Quadratic iterative algorithm with run time growing proportionally to lenth of n * n.
 
 
-c) O(c) - Recursive function. Each operation requires same amount of time to execute.
+c) O(n) - A linear, recursive function. Duration of function is contingent of value of n.
+
 
 ## Exercise II
 
@@ -30,7 +31,7 @@ Q. Can dropped eggs be returned to the pile?
     - repeat step 2 on next floor until egg breaks (`while egg_break = False`)
 5. return f[n]
 
-Runtime Explanation:
+### Runtime Explanation:
 
 Option A:
 
@@ -40,10 +41,10 @@ option B:
 
     If it varies across building floor levels, this algorthm would have a linear RT complexity - O(n). Starting from the bottom, until egg-break floor is reached per building. Only one egg lost per building.
 
-## RECURSIVE
-`find_floor_that_breaks_eggs(floors, low, high, ):`
+## Binary Search RECURSIVE
+`find_floor_that_breaks_eggs(floors, low, high, level):`
 - if floors are greater than 1:
-    1. find middle floor ( ```mid = (low - high) // 2``` )
+    1. find middle floor ( ```mid = (low + high) // 2``` )
     2. execute drop egg function
     3. if `egg_breaks == True`, recursive call with middle floor replacing default high value (step 1)
     4. if `egg_breaks == False`, recursive call with middle floor replacing default low value (step 1)
@@ -51,8 +52,8 @@ option B:
 - else:
     1. return `"Bungalows have only a ground floor."`
 
-Runtime Explanation:
+### Runtime Explanation:
 
-    A binary search recusrive function is quickest way, with run time complexity of O(logn). Essentially menaing, time goes up linearly while the n goes up exponentially.
+    A binary search recusrive function is quickest way, with run time complexity of O(logn). Essentially meaning, time increases linearly while the n decreases exponentially.
     
-    It is not however the most egg conservative
+    It is not however the most egg conservative method.
